@@ -1,0 +1,29 @@
+# …
+# .===</PYTHON>===.
+# .===</JAIROCKF>===.
+# …
+# This code was created by Jairo Cárdenas, a mechatronic engineering student.
+def main(cadena):
+    for i in range(len(cadena)):
+        print(cadena[i])
+
+def main2(cadena):
+    for i in cadena:
+        print(cadena[i])
+
+def main3(cadena):
+    i=0
+    while i<len(cadena):
+        print(cadena[i])
+        i+=1
+
+def main4(cadena):
+    for i in range(-1,-len(cadena)-1,-1):
+        print(cadena[i])
+
+if __name__ == "__main__":
+    cadena = "Hola Mundo"
+    main(cadena)
+    main2(cadena)
+    main3(cadena)
+    main4(cadena)
