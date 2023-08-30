@@ -3,6 +3,7 @@
 # .===</JAIROCKF>===.
 # …
 # This code was created by Jairo Cárdenas, a mechatronic engineering student.
+
 def agregar(milista):
     num = int(input("Que desea agregar?: "))
     milista.append(num)
@@ -27,6 +28,20 @@ def remover(milista):
     # Remove eliminará el primer elemento que encuentre que coincida con el valor.
     print(milista)
 
+def index(milista):
+    print(milista)
+    n=int(input("Indique la ubicación de la lista: "))
+    p=milista.index(n)
+    # Index revisará cúal es el elemento que se ubica en la posición de la lista.
+    print(f"El elemento en la posición es {n} es {p}")
+
+def extraer(milista):
+    print(milista)
+    n=int(input("Indique la posición a eliminar: "))
+    milista.pop(n)
+    # Pop eliminará el valor que se encuentre en la posición especificada.
+    print(milista)
+
 def main(milista):
     opc=''
     while opc!="exit":
@@ -40,9 +55,15 @@ def main(milista):
         
         elif opc=="4":
             remover(milista)
+
+        elif opc=="5":
+            index(milista)
+        elif opc=="6":
+            extraer(milista)
+
         print("Seleccione una opción: \n",\
             "1. Append\n2. Insert\n3. Formatear\n",\
-                "4. remover\n")    
+                "4. Remover\n5. Valor elemento\n6. Extraer")    
         opc=input("Selección: ") 
 
 if __name__=="__main__":
