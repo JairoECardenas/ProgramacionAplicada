@@ -4,12 +4,12 @@
 # …
 # This code was created by Jairo Cárdenas, a mechatronic engineering student.
 
-def conteo(num):
-    if num > 0:
-        num-=1
-        conteo(num)
-    print(num)
+def suma(n,m):
+    n-=1
+    m.append(2*n-1)
+    suma(n,m)
 
 if __name__=="__main__":
-    n=int(input("Hasta que número desea contar: "))
-    conteo(n)
+    n=int(input("Ingrese hasta que número desea sumar: "))
+    m=[]
+    suma(n,m)
