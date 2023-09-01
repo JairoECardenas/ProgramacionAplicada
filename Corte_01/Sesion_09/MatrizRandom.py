@@ -21,7 +21,6 @@ def imprimir(matriz):
 
 def escalar(matriz):
     esc=int(input("Ingrese un escalar: "))
-    matriz02=[]
     for i in matriz:
         for j in range(len(i)):
             i[j]*=esc
