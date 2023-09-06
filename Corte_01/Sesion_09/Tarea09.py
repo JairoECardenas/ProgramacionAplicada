@@ -8,7 +8,6 @@ from MatrizRandom import crearMatriz, imprimir
 def MinMax(matriz):
     menor = []
     mayor = []
-    cont = 0
     for i in matriz:
         menor.append(min(i))
         mayor.append(max(i))
