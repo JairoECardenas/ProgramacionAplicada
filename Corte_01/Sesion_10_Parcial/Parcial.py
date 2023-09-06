@@ -37,7 +37,7 @@ def conversor(moneda,valor):
 
 def menu():
     print('''Programas disponibles:
-          1) Consersión de COP a cualquier divisa seleccionada.
+          1) Conversión de COP a cualquier divisa seleccionada.
           2) Ver las tasas de cambio y la correspondiente comisión.\n''')
     menu = int(input("Dígite el número del programa: "))
     return menu
