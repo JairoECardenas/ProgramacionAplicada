@@ -3,6 +3,7 @@
 # .===</JAIROCKF>===.
 # …
 # This code was created by Jairo Cárdenas, a mechatronic engineering student.
+
 from random import randint as r
 
 def crear(filas, columnas):
@@ -14,8 +15,13 @@ def crear(filas, columnas):
             matriz[i].append(num)
     return matriz
 
+def crearLista(columnas):
+    lista = []
+    for i in range(columnas):
+        lista.append(r(0,100))
+    return lista
+
 def imprimir(matriz):
-    print("\nLa matriz es la siguiente:\n")
     for fila in matriz:
         for valor in fila:
             print(f"{valor:^4}", end=" ") # Este comando va a centrar los elementos y les dará 4 espacios de relleno.
