@@ -7,7 +7,7 @@
 def busqueda(a, b, i=0):
     if len(a) < len(b):
         return []
-    elif a[:len(b)] == b:
+    elif a[:len(b)].lower() == b.lower():
         return [i] + busqueda(a[1:], b, i+1)
         # Compará si desde la posición 0 hasta la longitud de b, a es igual a b.
     else:
