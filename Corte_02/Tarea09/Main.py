@@ -6,6 +6,7 @@
 
 import sys
 sys.path.append('./Funciones')
+# Este comando permite llamar desde las importaciones los archivos en la carpeta Funciones.
 from CrearMatriz import crear,crearLista,imprimir
 from stringsRecursiva import busqueda
 from MinMaxMatriz import MinMax
