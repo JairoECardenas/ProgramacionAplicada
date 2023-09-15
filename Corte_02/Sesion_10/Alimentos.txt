@@ -55,4 +55,3 @@ CODIGO,DESCRIPCION,TARIFA IVA LEY VIGENTE
 1920200,Comidas rapidas calientes,0
 1930100,Gastos de cafeteria,0
 1930200,Comidas rapidas frias,0
-
