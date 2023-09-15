@@ -7,11 +7,14 @@
 def imprimir_menu():
     print("\n1) Mostrar la lista de productos disponibles.",\
         "\n2) Calcular el valor base de un producto.\n3) salir.")
+
 def imprimir():
     f=open("Alimentos.txt","rt")
     listaAlimentos=f.read()
     f.close
+    print('\n-------------------------\n')
     print(listaAlimentos)
+    print('\n-------------------------\n')
 
 def importarDatos():
     f=open("Alimentos.txt","rt")
@@ -30,7 +33,7 @@ def buscar_valor_base(datos, nombreAlimento):
             valorNeto=int(input('Ingrese el valor neto del producto: '))
             valorBase=(valorNeto)/(1+float(valor[1]))
             return round(valorBase,2)
-    print("\nHa ingresado un valor inválido.")
+    print("\nHa ingresado un valor inválido, recuerte respetar las las mayusculas y minusculas.")
     return False
 
 def main():
