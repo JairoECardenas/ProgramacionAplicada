@@ -10,10 +10,15 @@ def imprimir_menu():
 
 def imprimir():
     f=open("Alimentos.txt","rt")
-    listaAlimentos=f.read()
+    listaAlimentos=f.readlines()
     f.close
+    b=[]
+    for a in listaAlimentos[1:]:
+        b.append(a.split(','))
+        b.sort(key=lambda x: x[2])
     print('\n-------------------------\n')
-    print(listaAlimentos)
+    for i, lista in enumerate(b):
+        print(f'{i+1}. {lista[1]}')
     print('\n-------------------------\n')
 
 def importarDatos():
@@ -32,7 +37,7 @@ def buscar_valor_base(datos, nombreAlimento):
         if valor[0]==nombreAlimento:
             valorNeto=int(input('Ingrese el valor neto del producto: '))
             valorBase=(valorNeto)/(1+float(valor[1]))
-            return round(valorBase,2)
+            return round(valorBase,2),float(valor[1])
     print("\nHa ingresado un valor inválido, recuerte respetar las las mayusculas y minusculas.")
     return False
 
@@ -47,7 +52,7 @@ def main():
             alimento=input('Ingrese el nombre del alimento tal y como aparece en la lista: ')
             valorBase=buscar_valor_base(datos, alimento)
             if valorBase!=False:
-                print(f"El valor base es: ${valorBase}")
+                print(f"\nEl valor base es: ${valorBase[0]}\nSu IVA es: {valorBase[1]*100}%")
         elif opc=='3' or opc.lower()=='salir':
             break
         else:
