@@ -1,0 +1,18 @@
+
+Seleccione la opción que desea o escriba 'salir' para finalizar el programa:
+
+#1.  Conocer el numero de copas mundo que un país ha ganado.
+#2.  Conocer el numero de subcampeonatos que un país ha ganado.
+#3.  Conocer el numero de participaciones de un equipo al mundial.
+#4.  Conocer el numero de copas mundiales jugadas hasta la fecha.
+#5.  Conocer el número de asistentes a las copas mundiales.
+#6.  Conocer el número de finales disputadas por penales.
+#7.  Conocer el número de goles a favor de los equipos en los mundiales.
+#8.  Conocer el número de goles en contra de los equipos en los mundiales.
+#9.  Conocer la diferencia de goles en todas sus presentaciones.
+#10. Conocer el promedio de goles de un equipo en mundiales.
+#11. Conocer cuantas veces se han enfrentado 2 equipos en los mundiales.
+#12. Conocer cual es el mundial con más penales.
+#13. Conocer cual es el mundial con mayor número de goles.
+#14. Conocer cuales fueron las mayores goleadas de los mundiales.
+
