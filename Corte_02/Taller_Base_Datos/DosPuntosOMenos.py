@@ -56,7 +56,7 @@ def subcampeon_mundial(listado):
     print(subcampeones)
 
 def main():
-    campeon_mundial()
+    pass
 
 if __name__=='__main__':
     main()
