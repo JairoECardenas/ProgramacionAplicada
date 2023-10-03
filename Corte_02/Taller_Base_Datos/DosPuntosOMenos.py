@@ -55,6 +55,40 @@ def subcampeon_mundial(listado):
                     subcampeones[partidos[0]]=list_year
     print(subcampeones)
 
+def participaciones_mundial(listado):
+    paises={}
+    print("a. ver la tabla completa de participación a los mundiales.\n"
+        "b. Realizar la busqueda por país\n")
+    opcion = input("----> ")
+    for partidos in listado:
+        if partidos[0] not in paises:
+            paises[partidos[0]]=[partidos[16]]
+        else:
+            if partidos[16] not in paises[partidos[0]]:
+                listaTemp=paises[partidos[0]]
+                listaTemp.append(partidos[16])
+                paises[partidos[0]]=listaTemp
+            else:
+                pass
+        if partidos[1] not in paises:
+            paises[partidos[1]]=[partidos[16]]
+        else:
+            if partidos[16] not in paises[partidos[1]]:
+                listaTemp=paises[partidos[1]]
+                listaTemp.append(partidos[16])
+                paises[partidos[1]]=listaTemp
+            else:
+                pass
+    if opcion == 'a':
+        print("Lista de asistencia a los mundiales".center(70,'-'))
+        for item,value in paises.items():
+            print(f'{item} ha participado en: {len(value)}\n',value,'\n')
+    elif opcion == 'b':
+        print('\n',"Busqueda de asistencia a los mundiales".center(70,'-'))
+        opcion = input('\n¿Cual país desea consultar? --> ')
+        print(f'{opcion} ha participado en: {len(paises[opcion])}\n',paises[opcion],'\n')
+        
+
 def main():
     pass
 

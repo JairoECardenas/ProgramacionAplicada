@@ -27,7 +27,8 @@ def main():
     while True:
         imprimir()
         datos=importarDatos()
-        menu={'1':campeon_mundial, '2':subcampeon_mundial, '11':numero_enfrentamientos,'14':mayores_goleadas}
+        menu={'1':campeon_mundial, '2':subcampeon_mundial,'3':participaciones_mundial,
+            '11':numero_enfrentamientos,'14':mayores_goleadas}
         opcion=input('Opción: ')
         if opcion.lower() == 'salir':
             break
