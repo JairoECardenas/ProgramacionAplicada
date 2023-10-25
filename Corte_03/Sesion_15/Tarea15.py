@@ -4,7 +4,7 @@
 # …
 # This code was created by Jairo Cárdenas, a mechatronic engineering student.
 
-class Ciudadano():
+class Ciudadano(): # Crea la clase padre
     def __init__(self,lista:list):
         self.__nombre=lista[0]
         self.__documento=lista[1]
@@ -40,7 +40,7 @@ class Ciudadano():
     def mostrar(self):
         return f'Nombre: {self.getNombre()}\nCédula: {self.getDocumento()}\nEdad: {self.getEdad()}'
     
-    @staticmethod
+    @staticmethod # Se usa un método estatico para acceder a él sin instancias
     def mostrar_todos(lista):
         for p in lista:
             print('\n------------------------')
@@ -50,11 +50,11 @@ class Ciudadano():
     def es_mayor_de_edad(self):
         return self.__edad >= 18
 
-class Mecatronico(Ciudadano):
+class Mecatronico(Ciudadano): # Primera clase hija
     def __init__(self, lista, campo1, campo2):
         super().__init__(lista)
-        self.campo1 = campo1
-        self.campo2 = campo2
+        self.campo1 = campo1 # Arduinos quemados
+        self.campo2 = campo2 # Horas en lol
 
     def metodo_unico_mecatronico(self):
         print(f'{self.getNombre()} es un gran Ingeniero a pesar de acumular {self.campo2} horas en lol.')
@@ -64,11 +64,11 @@ class Mecatronico(Ciudadano):
         return f'{info_base}\nProfesión: Mecatronico\n' \
             f'Arduinos quemados: {self.campo1}\nTiempo jugando League of Legends: {self.campo2} horas'
 
-class Piloto(Ciudadano):
+class Piloto(Ciudadano): # Segunda clase hija
     def __init__(self, lista, campo1, campo2):
         super().__init__(lista)
-        self.campo1 = campo1
-        self.campo2 = campo2
+        self.campo1 = campo1 # Vuelos realizados
+        self.campo2 = campo2 # Record Personal
 
     def metodo_unico_piloto(self):
         print(f'{self.getNombre()} ha realizado {self.campo1()} a sus {self.getEdad()} años de edad.')
@@ -77,11 +77,11 @@ class Piloto(Ciudadano):
         info_base = super().mostrar()
         return f'{info_base}\nProfesión: Piloto\nVuelos realizados: {self.campo1}\nRecord personal: {self.campo2}km'
 
-class Artista(Ciudadano):
+class Artista(Ciudadano): # Tercer clase hija
     def __init__(self, lista, campo1, campo2):
         super().__init__(lista)
-        self.campo1 = campo1
-        self.campo2 = campo2
+        self.campo1 = campo1 # Técnica artistica
+        self.campo2 = campo2 # Medio utilizado
 
     def metodo_unico_artista(self):
         print(f'Los cuadros que realiza {self.getNombre()} en {self.campo1()} son espectaculares.')
@@ -130,6 +130,7 @@ def seleccionar_profesion_y_metodo(lista):
     indice_profesion = int(input('Seleccione una profesión: '))-1
     
     print('Lista de ciudadanos registrados:')
+    # Se compara la clase de la instancia con la ingresada por el usuario.
     instancias = [p for p in lista if type(p).__name__ == profesiones[indice_profesion]]
     for i, instancia in enumerate(instancias):
         print(f'{i+1}: {instancia.getNombre()}')
@@ -142,11 +143,12 @@ def seleccionar_profesion_y_metodo(lista):
     elif profesiones[indice_profesion] == 'Artista':
         instancias[indice_instancia].metodo_unico_artista()
     else:
-        print('Ha seleccionado un valor inválido')
+        print('Ha seleccionado un valor inválido.')
 
 def main():
     persona=[]
     opc=''
+    # El comando lambda evita que se ejecuten las funciones antes de ser llamadas por el usuario.
     menu = {'1': lambda: agregar(persona), '2': lambda: Ciudadano.mostrar_todos(persona),
             '3': lambda: mostrar_mayores_menores(persona),
             '4': lambda: seleccionar_profesion_y_metodo(persona), '5': None}
