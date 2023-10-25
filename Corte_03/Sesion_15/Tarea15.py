@@ -71,7 +71,7 @@ class Piloto(Ciudadano): # Segunda clase hija
         self.campo2 = campo2 # Record Personal
 
     def metodo_unico_piloto(self):
-        print(f'{self.getNombre()} ha realizado {self.campo1()} a sus {self.getEdad()} años de edad.')
+        print(f'{self.getNombre()} ha realizado {self.campo1()} vuelos a sus {self.getEdad()} años de edad.')
 
     def mostrar(self):
         info_base = super().mostrar()
