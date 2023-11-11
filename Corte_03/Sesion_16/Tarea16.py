@@ -13,8 +13,8 @@ class Articulos():
     def setNombre(self, nombre:str):
         self.__nombre=nombre
 
-    def setPrecio(self, edad:int):
-        self.__edad=edad
+    def setPrecio(self, precio:int):
+        self.__precio=precio
 
     #------------Getters------------
     def getNombre(self):
@@ -52,15 +52,21 @@ def importarDatos():
     listaAlimentos=f.read()
     f.close
     a=listaAlimentos.split('\n')
-    datos={}
+    datos=[]
     for i in a[1:]:
         b=i.split(',')
-        datos[b[0]]=[b[1],b[2]]
+        if b[2] == '0':
+            datos.append(IvaCero(b[1], None, b[2]))
+        elif b[2] == '0.05':
+            datos.append(IvaCinco(b[1], None, b[2]))
+        elif b[2] == '0.19':
+            datos.append(IvaDiecinueve(b[1], None, b[2]))
     return datos
 
 def imprimir_menu():
     print("\n1) Mostrar la lista de productos disponibles.",\
-        "\n2) Calcular el valor base de un producto.\n3) salir.")
+        "\n2) Calcular el valor base de un producto.",\
+        "\n3) Productos con precio registrado.\n4) salir.")
 
 def imprimir():
     f=open("Alimentos.txt","rt")
@@ -77,18 +83,29 @@ def imprimir():
 
 def buscar_valor_base(datos):
     nombreAlimento=input('Ingrese el nombre del alimento tal y como aparece en la lista: ')
-    for valor in datos.values():
-        if valor[0]==nombreAlimento:
+    for producto in datos:
+        if producto.getNombre()==nombreAlimento:
             valorNeto=int(input('Ingrese el valor neto del producto: '))
-            valorBase=(valorNeto)/(1+float(valor[1]))
-            print(f"\nEl valor base es: ${valorBase[0]}\nSu IVA es: {valor[1]*100}%")
-            return round(valorBase,2),float(valor[1])
+            valorBase=round((valorNeto)/(1+producto.getIva()),2)
+            print(f"\nEl valor base es: ${valorBase}\nSu IVA es: {producto.getIva()*100}%")
+            producto.setPrecio(valorBase) # Establece el precio del producto
+            return producto
     print("\nHa ingresado un valor inválido, recuerte respetar las las mayusculas y minusculas.")
-    return False
+    return None
+
+def imprimir_productos_con_precio(datos):
+    print("\n-------------------------")
+    for producto in datos:
+        if producto.getPrecio() is not None:
+            print(f"Nombre del producto: {producto.getNombre()}")
+            print(f"Precio base: {producto.getPrecio()}")
+            print(f"IVA: {producto.getIva()*100}%")
+            print("-------------------------")
 
 def main():
     datos=importarDatos()
-    menu={'1': lambda:imprimir(),'2': lambda:buscar_valor_base(datos),'3': None}
+    menu={'1': lambda:imprimir(),'2': lambda:buscar_valor_base(datos),
+          '3': lambda:imprimir_productos_con_precio(datos), '4': None}
     while True:
         imprimir_menu()
         opc=input("\nIngrese la opción que desea ejecutar: ")
